@@ -1,0 +1,11 @@
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\bin\Debug\netcoreapp1.1\BookingWebsite.deps.json
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\bin\Debug\netcoreapp1.1\BookingWebsite.runtimeconfig.json
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\bin\Debug\netcoreapp1.1\BookingWebsite.runtimeconfig.dev.json
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\bin\Debug\netcoreapp1.1\BookingWebsite.dll
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\obj\Debug\netcoreapp1.1\BookingWebsite.AssemblyInfo.cs
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\bin\Debug\netcoreapp1.1\BookingWebsite.pdb
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\obj\Debug\netcoreapp1.1\BookingWebsite.csprojResolveAssemblyReference.cache
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\obj\Debug\netcoreapp1.1\BookingWebsite.dll
+C:\Users\ludde\Source\dokument\AgileProjekt\BookingWebsite\BookingWebsite\obj\Debug\netcoreapp1.1\BookingWebsite.pdb
