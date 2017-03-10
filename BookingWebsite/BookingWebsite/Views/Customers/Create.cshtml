@@ -1,0 +1,40 @@
+﻿@using BookingWebsite.Models
+@model Customer
+    @addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form asp-controller="customers" asp-action="create">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <a>Körv</a>
+            <span style="color:red" asp-validation-for="Name"></span> <br />
+            <label asp-for="HomeNumber"></label>
+            <input asp-for="HomeNumber" />
+            <span style="color: red" asp-validation-for="HomeNumber"></span> <br />
+            <label asp-for="MobileNumber"></label>
+            <input asp-for="MobileNumber" />
+            <span style="color: red" asp-validation-for="MobileNumber"></span> <br />
+            <label asp-for="Adress"></label>
+            <input asp-for="Adress" />
+            <span style="color: red" asp-validation-for="Adress"></span> <br />
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <span style="color: red" asp-validation-for="Email"></span> <br />
+            <label asp-for="SocialSecurityNumber"></label>
+            <input asp-for="SocialSecurityNumber" />
+            <span style="color: red" asp-validation-for="SocialSecurityNumber"></span> <br />
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span style="color: red" asp-validation-for="Password"></span> <br />
+
+
+            <input type="submit" value="Submit" />
+
+
+        </form>
+    </body>
+</html>
