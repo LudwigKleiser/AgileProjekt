@@ -9693,7 +9693,7 @@
         "dependencies": {
           "Microsoft.AspNetCore": {
             "target": "Package",
-            "version": "[1.1.1, )"
+            "version": "1.1.1"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
