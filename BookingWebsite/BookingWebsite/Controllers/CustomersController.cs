@@ -19,8 +19,8 @@ namespace BookingWebsite.Controllers
         }
         public IActionResult Index()
         {
-
-            return View();
+           var models = context.GetCustomersForIndex();
+            return View(models);
         }
 
         [HttpGet]
@@ -34,8 +34,8 @@ namespace BookingWebsite.Controllers
         public IActionResult Create(Customer customer)
         {
             context.AddCustomer(customer);
-            
-           
+            return RedirectToAction(nameof(CustomersController.Index));
+
             return View();
         }
     }
