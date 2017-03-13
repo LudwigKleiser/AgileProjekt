@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookingWebsite.Models.Entities;
+using BookingWebsite.Models;
 
 namespace BookingWebsite.Controllers
 {
@@ -31,12 +32,13 @@ namespace BookingWebsite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Customer customer)
+        public IActionResult Create(CustomersCreateVM customer)
         {
-            context.AddCustomer(customer);
-            return RedirectToAction(nameof(CustomersController.Index));
+            if (!ModelState.IsValid)
+                return View();
 
-            return View();
+                context.AddCustomer(customer);
+            return RedirectToAction(nameof(CustomersController.Index));
         }
     }
 }

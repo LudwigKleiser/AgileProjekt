@@ -14,9 +14,20 @@ namespace BookingWebsite.Models.Entities
         {
         }
 
-        public void AddCustomer(Customer customer)
+        public void AddCustomer(CustomersCreateVM customer)
         {
-            Customer.Add(customer);
+            var customerToAdd = new Customer
+            {
+                Adress = customer.Adress,
+                Email = customer.Email,
+                HomeNumber = customer.HomeNumber,
+                MobileNumber = customer.MobileNumber,
+                Name = customer.Name,
+                Password = customer.Password,
+                SocialSecurityNumber = customer.SocialSecurityNumber
+            };
+
+            Customer.Add(customerToAdd);
             SaveChanges();
         }
 

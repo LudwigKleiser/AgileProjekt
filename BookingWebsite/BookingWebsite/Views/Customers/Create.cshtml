@@ -5,12 +5,12 @@
     <html>
     <head>
         <title></title>
+        <script src="~/js/JavaScript.js"></script>
     </head>
     <body>
         <form asp-controller="customers" asp-action="create">
             <label asp-for="Name"></label>
             <input asp-for="Name" />
-            <a>Körv</a>
             <span style="color:red" asp-validation-for="Name"></span> <br />
             <label asp-for="HomeNumber"></label>
             <input asp-for="HomeNumber" />
@@ -32,9 +32,9 @@
             <span style="color: red" asp-validation-for="Password"></span> <br />
 
 
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" onclick="RegistrationMessage()"/>
 
-
+            
         </form>
     </body>
 </html>
