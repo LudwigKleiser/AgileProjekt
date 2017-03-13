@@ -1,0 +1,16 @@
+﻿@using BookingWebsite.Models
+@model Customer[]
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+   @foreach (var item in Model)
+   {
+       <h1>@item.Name</h1>
+       <h1>@item.HomeNumber</h1>
+       <h1>@item.SocialSecurityNumber</h1>
+   }
+</body>
+</html>

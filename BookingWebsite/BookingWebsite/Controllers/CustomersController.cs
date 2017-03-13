@@ -19,6 +19,7 @@ namespace BookingWebsite.Controllers
         }
         public IActionResult Index()
         {
+
             return View();
         }
 
@@ -32,6 +33,9 @@ namespace BookingWebsite.Controllers
         [HttpPost]
         public IActionResult Create(Customer customer)
         {
+            context.AddCustomer(customer);
+            
+           
             return View();
         }
     }

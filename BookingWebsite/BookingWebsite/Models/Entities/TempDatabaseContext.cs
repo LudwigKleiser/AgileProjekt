@@ -43,5 +43,7 @@ namespace BookingWebsite.Models.Entities
                     .HasMaxLength(50);
             });
         }
+
+        
     }
 }
