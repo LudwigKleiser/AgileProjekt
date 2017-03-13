@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using BookingWebsite.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingWebsite
 {
@@ -15,6 +17,9 @@ namespace BookingWebsite
       
         public void ConfigureServices(IServiceCollection services)
         {
+            var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TempDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            services.AddDbContext<TempDatabaseContext>(options =>
+                options.UseSqlServer(connString));
             services.AddMvc();
         }
 
