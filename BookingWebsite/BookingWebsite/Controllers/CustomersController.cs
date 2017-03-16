@@ -38,6 +38,7 @@ namespace BookingWebsite.Controllers
                 return View();
 
                 context.AddCustomer(customer);
+                 
             return RedirectToAction(nameof(CustomersController.Index));
         }
     }

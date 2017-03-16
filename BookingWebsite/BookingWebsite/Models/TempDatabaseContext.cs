@@ -16,20 +16,32 @@ namespace BookingWebsite.Models.Entities
 
         public void AddCustomer(CustomersCreateVM customer)
         {
+
+
             var customerToAdd = new Customer
             {
                 FirstName = customer.FirstName,
+                Email = customer.Email,
                 
 
             };
-            
             Customer.Add(customerToAdd);
             SaveChanges();
+
+            var userToAdd = new User
+            {
+                CustomerId = Customer.Single(i => i.Email == customer.Email).CustomerId,
+                Password = customer.Password,
+                Username = customer.UserName
+            };
+            User.Add(userToAdd);
+            SaveChanges();
+           
         }
 
         public Customer[] GetCustomersForIndex()
         {
-            return this.Customer.Where(o => o.Name == "Ludde").ToArray();
+            return this.Customer.Where(o => o.FirstName == "Ludde").ToArray();
         }
     }
 }

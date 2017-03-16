@@ -18,7 +18,7 @@ namespace BookingWebsite
         public void ConfigureServices(IServiceCollection services)
         {
            // @"Data Source = bookinz.database.windows.net; Initial Catalog = Bookinz; Persist Security Info = True; User ID = bookinz; Password = ***********"
-                           var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TempDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                           var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TempDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" ;
             services.AddDbContext<TempDatabaseContext>(options =>
                 options.UseSqlServer(connString));
             services.AddMvc();

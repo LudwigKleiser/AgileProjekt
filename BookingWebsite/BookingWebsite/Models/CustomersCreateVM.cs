@@ -36,5 +36,10 @@ namespace BookingWebsite.Models
 
         [Required(ErrorMessage = "Must enter a Social security number")]
         public string SocialSecurityNumber { get; set; }
+
+        public string Password { get; set; }
+
+        public string UserName { get; set; }
+
     }
 }
