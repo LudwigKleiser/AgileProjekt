@@ -1,0 +1,20 @@
+﻿@using BookingWebsite.Models.Entities;
+@model Customer[]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyPage</title>
+</head>
+<body>
+    <h1>My Page</h1>
+@foreach (var item in Model)
+{
+        <h2>@item.Name</h2>
+        <h2>@item.SocialSecurityNumber</h2>
+        <h2>@item.Adress</h2>
+        <h2>@item.HomeNumber</h2>
+        <h2>@item.MobileNumber</h2>
+        <h2>@item.Password</h2>
+}
+</body>
+</html>

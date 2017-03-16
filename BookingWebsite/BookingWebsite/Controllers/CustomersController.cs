@@ -18,9 +18,17 @@ namespace BookingWebsite.Controllers
         {
             this.context = context;
         }
+
+
         public IActionResult Index()
         {
            var models = context.GetCustomersForIndex();
+            return View(models);
+        }
+
+        public IActionResult MyPage()
+        {
+            var models = context.GetCurrentCustomer();
             return View(models);
         }
 
@@ -30,6 +38,8 @@ namespace BookingWebsite.Controllers
             
             return View();
         }
+
+        
 
         [HttpPost]
         public IActionResult Create(CustomersCreateVM customer)

@@ -10285,15 +10285,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Roger och Stina\\.nuget\\packages\\": {}
+    "C:\\Users\\ace\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roger och Stina\\Desktop\\Agilt Projekt\\AgileProjekt\\BookingWebsite\\BookingWebsite\\BookingWebsite.csproj",
+      "projectUniqueName": "C:\\Users\\ace\\Documents\\Visual Studio 2017\\Projects\\Agiltprojektarbete\\AgileProjekt\\BookingWebsite\\BookingWebsite\\BookingWebsite.csproj",
       "projectName": "BookingWebsite",
-      "projectPath": "C:\\Users\\Roger och Stina\\Desktop\\Agilt Projekt\\AgileProjekt\\BookingWebsite\\BookingWebsite\\BookingWebsite.csproj",
-      "outputPath": "C:\\Users\\Roger och Stina\\Desktop\\Agilt Projekt\\AgileProjekt\\BookingWebsite\\BookingWebsite\\obj\\",
+      "projectPath": "C:\\Users\\ace\\Documents\\Visual Studio 2017\\Projects\\Agiltprojektarbete\\AgileProjekt\\BookingWebsite\\BookingWebsite\\BookingWebsite.csproj",
+      "outputPath": "C:\\Users\\ace\\Documents\\Visual Studio 2017\\Projects\\Agiltprojektarbete\\AgileProjekt\\BookingWebsite\\BookingWebsite\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

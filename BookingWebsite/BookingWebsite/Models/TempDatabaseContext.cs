@@ -33,7 +33,14 @@ namespace BookingWebsite.Models.Entities
 
         public Customer[] GetCustomersForIndex()
         {
-            return this.Customer.Where(o => o.Name == "Ludde").ToArray();
+            return this.Customer.ToArray();
+        }
+
+        public Customer[] GetCurrentCustomer()
+        {
+            int lastCreatedCustomer = Customer.OrderByDescending(o => o.Id).FirstOrDefault().Id;
+            return this.Customer.Where(o => o.Id == lastCreatedCustomer).ToArray();
+
         }
     }
 }

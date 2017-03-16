@@ -6,11 +6,15 @@
     <title></title>
 </head>
 <body>
-   @foreach (var item in Model)
-   {
-       <h1>@item.Name</h1>
-       <h1>@item.HomeNumber</h1>
-       <h1>@item.SocialSecurityNumber</h1>
-   }
+
+
+    @foreach (var item in Model)
+    {
+        <h1>@item.Name</h1>
+        <h1>@item.HomeNumber</h1>
+        <h1>@item.SocialSecurityNumber</h1>
+        <h1>@item.Id</h1>
+
+    }
 </body>
 </html>
