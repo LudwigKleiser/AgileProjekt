@@ -18,13 +18,9 @@ namespace BookingWebsite.Models.Entities
         {
             var customerToAdd = new Customer
             {
-                Adress = customer.Adress,
-                Email = customer.Email,
-                HomeNumber = customer.HomeNumber,
-                MobileNumber = customer.MobileNumber,
-                Name = customer.Name,
-                Password = customer.Password,
-                SocialSecurityNumber = customer.SocialSecurityNumber
+                FirstName = customer.FirstName,
+                
+
             };
             
             Customer.Add(customerToAdd);

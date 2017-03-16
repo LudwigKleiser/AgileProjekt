@@ -5,13 +5,26 @@ namespace BookingWebsite.Models.Entities
 {
     public partial class Customer
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string HomeNumber { get; set; }
-        public string MobileNumber { get; set; }
-        public string Adress { get; set; }
+        public Customer()
+        {
+            Booking = new HashSet<Booking>();
+            User = new HashSet<User>();
+        }
+
+        public int CustomerId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Telephone { get; set; }
+        public string Mobilephone { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string ZipCode { get; set; }
+        public string City { get; set; }
         public string Email { get; set; }
         public string SocialSecurityNumber { get; set; }
-        public string Password { get; set; }
+        public int? Statuscode { get; set; }
+
+        public virtual ICollection<Booking> Booking { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

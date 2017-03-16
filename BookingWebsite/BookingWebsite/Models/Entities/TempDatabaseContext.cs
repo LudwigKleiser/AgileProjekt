@@ -6,44 +6,91 @@ namespace BookingWebsite.Models.Entities
 {
     public partial class TempDatabaseContext : DbContext
     {
+        public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Room> Room { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
-       
+     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Booking>(entity =>
+            {
+                entity.Property(e => e.BookingId).HasColumnName("BookingID");
+
+                entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
+
+                entity.Property(e => e.EndDate).HasColumnType("datetime");
+
+                entity.Property(e => e.RoomId).HasColumnName("Room_Id");
+
+                entity.Property(e => e.StartDate).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Booking)
+                    .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_BookingCustomer");
+
+                entity.HasOne(d => d.Room)
+                    .WithMany(p => p.Booking)
+                    .HasForeignKey(d => d.RoomId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_BookingRoom");
+            });
+
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.Property(e => e.Adress)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.AddressLine1).HasMaxLength(50);
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.AddressLine2).HasMaxLength(50);
 
-                entity.Property(e => e.HomeNumber)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.City).HasMaxLength(50);
 
-                entity.Property(e => e.MobileNumber)
+                entity.Property(e => e.Email).HasMaxLength(100);
+
+                entity.Property(e => e.FirstName).HasMaxLength(50);
+
+                entity.Property(e => e.LastName).HasMaxLength(50);
+
+                entity.Property(e => e.Mobilephone).HasMaxLength(50);
+
+                entity.Property(e => e.SocialSecurityNumber).HasMaxLength(50);
+
+                entity.Property(e => e.Telephone).HasMaxLength(50);
+
+                entity.Property(e => e.ZipCode).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Room>(entity =>
+            {
+                entity.Property(e => e.Description)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(300);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.CustomerId).HasColumnName("Customer_Id");
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(100);
 
-                entity.Property(e => e.SocialSecurityNumber)
+                entity.Property(e => e.Username)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.User)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_CustomerUser");
             });
         }
-
-        
     }
 }

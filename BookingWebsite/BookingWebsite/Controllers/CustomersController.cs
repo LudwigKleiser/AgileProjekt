@@ -27,7 +27,7 @@ namespace BookingWebsite.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            korv
+            
             return View();
         }
 
