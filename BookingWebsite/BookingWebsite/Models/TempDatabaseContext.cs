@@ -26,7 +26,7 @@ namespace BookingWebsite.Models.Entities
                 Password = customer.Password,
                 SocialSecurityNumber = customer.SocialSecurityNumber
             };
-
+            
             Customer.Add(customerToAdd);
             SaveChanges();
         }
