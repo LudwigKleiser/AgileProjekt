@@ -19,23 +19,23 @@ namespace BookingWebsite.Models.Entities
             {
                 entity.Property(e => e.BookingId).HasColumnName("BookingID");
 
-                entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
+                entity.Property(e => e.Customer_Id).HasColumnName("Customer_ID");
 
                 entity.Property(e => e.EndDate).HasColumnType("datetime");
 
-                entity.Property(e => e.RoomId).HasColumnName("Room_Id");
+                entity.Property(e => e.Room_Id).HasColumnName("Room_Id");
 
                 entity.Property(e => e.StartDate).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Booking)
-                    .HasForeignKey(d => d.CustomerId)
+                    .HasForeignKey(d => d.Customer_Id)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_BookingCustomer");
 
                 entity.HasOne(d => d.Room)
                     .WithMany(p => p.Booking)
-                    .HasForeignKey(d => d.RoomId)
+                    .HasForeignKey(d => d.Room_Id)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_BookingRoom");
             });
@@ -76,7 +76,7 @@ namespace BookingWebsite.Models.Entities
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.CustomerId).HasColumnName("Customer_Id");
+                entity.Property(e => e.Customer_Id).HasColumnName("Customer_Id");
 
                 entity.Property(e => e.Password)
                     .IsRequired()
@@ -88,7 +88,7 @@ namespace BookingWebsite.Models.Entities
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.User)
-                    .HasForeignKey(d => d.CustomerId)
+                    .HasForeignKey(d => d.Customer_Id)
                     .HasConstraintName("FK_CustomerUser");
             });
         }

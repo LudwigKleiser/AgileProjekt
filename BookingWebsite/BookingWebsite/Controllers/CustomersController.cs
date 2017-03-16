@@ -36,9 +36,23 @@ namespace BookingWebsite.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
-
+            
                 context.AddCustomer(customer);
-                 
+            Response.Cookies.Append("Password", customer.Password);
+            Response.Cookies.Append("Username", customer.UserName);
+            Response.Cookies.Append("Email", customer.Email);
+            return RedirectToAction(nameof(CustomersController.CreateUser));
+        }
+
+        public IActionResult CreateUser()
+        {
+            var usr = new UserCreateVM
+            {
+                Password = Request.Cookies["Password"],
+                Email = Request.Cookies["Username"],
+                Username = Request.Cookies["Username"]
+            };
+            context.AddUser(usr);
             return RedirectToAction(nameof(CustomersController.Index));
         }
     }

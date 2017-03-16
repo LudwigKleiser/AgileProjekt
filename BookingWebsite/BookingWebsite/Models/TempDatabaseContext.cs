@@ -22,26 +22,40 @@ namespace BookingWebsite.Models.Entities
             {
                 FirstName = customer.FirstName,
                 Email = customer.Email,
+                City = customer.City,
+                AddressLine1 = customer.AddressLine1,
+                AddressLine2 = customer.AddressLine2,
+                LastName = customer.LastName,
+                Telephone = customer.Telephone,
+                Mobilephone = customer.Mobilephone,
+                ZipCode = customer.ZipCode,
+                SocialSecurityNumber = customer.SocialSecurityNumber,
+                
                 
 
             };
             Customer.Add(customerToAdd);
             SaveChanges();
 
-            var userToAdd = new User
-            {
-                CustomerId = Customer.Single(i => i.Email == customer.Email).CustomerId,
-                Password = customer.Password,
-                Username = customer.UserName
-            };
-            User.Add(userToAdd);
-            SaveChanges();
+           
            
         }
 
         public Customer[] GetCustomersForIndex()
         {
-            return this.Customer.Where(o => o.FirstName == "Ludde").ToArray();
+            return this.Customer.Where(o => o.FirstName == "korv").ToArray();
+        }
+
+        public void AddUser(UserCreateVM user)
+        {
+            var userToAdd = new User
+            {
+                Customer_Id = Customer.SingleOrDefault(i => i.Email == user.Email).CustomerId,
+                Password = user.Password,
+                Username = user.Username
+            };
+            User.Add(userToAdd);
+            SaveChanges();
         }
     }
 }
