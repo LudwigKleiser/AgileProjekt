@@ -1,0 +1,18 @@
+﻿@using BookingWebsite.Models.Entities
+@model Customer
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+     <a href="../../customers/editcustomer/@Model.CustomerId">@Model.FirstName </a>
+    <h1>Last name:@Model.LastName</h1>
+    <h1>Adress:@Model.AddressLine1</h1>
+    <h1>City:@Model.City</h1>
+    <h1>Email:@Model.Email</h1>
+    <h1>Social Security Number:@Model.SocialSecurityNumber</h1>
+    <h1>Number:@Model.Mobilephone</h1>
+    
+</body>
+</html>

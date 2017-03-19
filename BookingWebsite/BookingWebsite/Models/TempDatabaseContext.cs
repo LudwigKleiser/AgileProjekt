@@ -36,25 +36,40 @@ namespace BookingWebsite.Models.Entities
             };
             Customer.Add(customerToAdd);
             SaveChanges();
-
-           
-           
+                                
         }
 
         public Customer[] GetCustomersForIndex()
         {
-            return this.Customer.Where(o => o.FirstName == "korv").ToArray();
+            return Customer.ToArray();
         }
 
-        public void AddUser(UserCreateVM user)
+        public void AddUser(UserCreateVM usr)
         {
-            var userToAdd = new User
+            User userToAdd = new User
             {
-                Customer_Id = Customer.SingleOrDefault(i => i.Email == user.Email).CustomerId,
-                Password = user.Password,
-                Username = user.Username
+                //Customer_Id = Customer.SingleOrDefault(i => i.Email == usr.Email).CustomerId,
+                Customer_Id = Customer.Single(i => i.Email == usr.Email).CustomerId,
+                Password = usr.Password,
+                Username = usr.Username,
+               
             };
             User.Add(userToAdd);
+            SaveChanges();
+            
+        }
+
+        public Customer FindCustomerById(int id)
+        {
+            return Customer.SingleOrDefault(i => i.CustomerId == id);
+        }
+
+        internal void EditCustomer(Customer customer)
+        {
+            var customerToFind = Customer.Find(customer.CustomerId);
+            customerToFind.FirstName = customer.FirstName;
+            customerToFind.LastName = customer.LastName;
+            customerToFind.Telephone = customer.Telephone;
             SaveChanges();
         }
     }

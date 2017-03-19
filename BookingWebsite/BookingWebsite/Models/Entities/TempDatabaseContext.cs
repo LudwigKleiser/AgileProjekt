@@ -92,5 +92,7 @@ namespace BookingWebsite.Models.Entities
                     .HasConstraintName("FK_CustomerUser");
             });
         }
+
+        
     }
 }
