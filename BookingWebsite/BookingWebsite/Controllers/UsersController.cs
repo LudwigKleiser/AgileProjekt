@@ -38,7 +38,7 @@ namespace BookingWebsite.Controllers
                 return View(model);
 
             // Create the DB Schema
-            //await context.Database.EnsureCreatedAsync();
+           // await identityContext.Database.EnsureCreatedAsync();
 
             // 1. Create user
             var user = new IdentityUser(model.Username);
@@ -53,9 +53,17 @@ namespace BookingWebsite.Controllers
             }
 
             await signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
-            
+
             // 3. Redirect user
             return RedirectToAction(nameof(CustomersController.EditCustomer));
         }
+
+        public async Task<IActionResult> CreateTables()
+        {
+       // await identityContext.Database.EnsureCreatedAsync();
+
+
+            return RedirectToAction(nameof(CustomersController.Index));
+    }
     }
 }

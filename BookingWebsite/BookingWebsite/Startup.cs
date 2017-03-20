@@ -18,9 +18,9 @@ namespace BookingWebsite
       
         public void ConfigureServices(IServiceCollection services)
         {
-           // var connString = @"Data Source=bookinz.database.windows.net;Initial Catalog=Bookinz;Persist Security Info=True;User ID=bookinz_web;Password=Sun16Experts";
-                           var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TempDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" ;
-            services.AddDbContext<TempDatabaseContext>(options =>
+            var connString = @"Data Source=bookinz.database.windows.net;Initial Catalog=Bookinz;Persist Security Info=True;User ID=bookinz_web;Password=Sun16Experts";
+                           //var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TempDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" ;
+            services.AddDbContext<HotelASPContext>(options =>
                 options.UseSqlServer(connString));
             services.AddDbContext<IdentityDbContext>(o => o.UseSqlServer(connString));
             services.AddIdentity<IdentityUser, IdentityRole>().

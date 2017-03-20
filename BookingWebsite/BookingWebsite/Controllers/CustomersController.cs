@@ -11,7 +11,7 @@ namespace BookingWebsite.Controllers
     public class CustomersController : Controller
     {
 
-        TempDatabaseContext context;
+        HotelASPContext context;
         
 
         public CustomersController(TempDatabaseContext context)
@@ -31,18 +31,18 @@ namespace BookingWebsite.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Create(CustomersCreateVM customer)
-        {
-            if (!ModelState.IsValid)
-                return View();
+        //[HttpPost]
+        //public IActionResult Create(CustomersCreateVM customer)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return View();
             
-                context.AddCustomer(customer);
-            Response.Cookies.Append("Password", customer.Password);
-            Response.Cookies.Append("Username", customer.UserName);
-            Response.Cookies.Append("Email", customer.Email);
-            return RedirectToAction(nameof(CustomersController.CreateUser));
-        }
+        //        context.AddCustomer(customer);
+        //    Response.Cookies.Append("Password", customer.Password);
+        //    Response.Cookies.Append("Username", customer.UserName);
+        //    Response.Cookies.Append("Email", customer.Email);
+        //    return RedirectToAction(nameof(CustomersController.CreateUser));
+        //}
 
         public IActionResult CreateUser()
         {
