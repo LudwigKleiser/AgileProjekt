@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using BookingWebsite.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BookingWebsite
 {
@@ -21,6 +22,10 @@ namespace BookingWebsite
                            var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TempDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" ;
             services.AddDbContext<TempDatabaseContext>(options =>
                 options.UseSqlServer(connString));
+            services.AddDbContext<IdentityDbContext>(o => o.UseSqlServer(connString));
+            services.AddIdentity<IdentityUser, IdentityRole>().
+            AddEntityFrameworkStores<IdentityDbContext>().
+            AddDefaultTokenProviders();
             services.AddSession();
             services.AddMemoryCache();
             services.AddMvc();
@@ -28,17 +33,18 @@ namespace BookingWebsite
         }
 
        
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)
         {
             
 
-            if (env.IsDevelopment())
-            {
+            
+            
                 app.UseStaticFiles();
                 app.UseSession();
                 app.UseDeveloperExceptionPage();
+                app.UseIdentity();
                 app.UseMvcWithDefaultRoute();
-            }
+            
 
        
         }

@@ -50,8 +50,7 @@ namespace BookingWebsite.Models.Entities
             {
                 //Customer_Id = Customer.SingleOrDefault(i => i.Email == usr.Email).CustomerId,
                 Customer_Id = Customer.Single(i => i.Email == usr.Email).CustomerId,
-                Password = usr.Password,
-                Username = usr.Username,
+                
                
             };
             User.Add(userToAdd);

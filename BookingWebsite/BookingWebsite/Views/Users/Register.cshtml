@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form asp-controller="users" asp-action="register">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span style="color: red" asp-validation-for="Password"></span> <br />
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+        <span style="color: red" asp-validation-for="Username"></span> <br />
+        <input type="submit" value="Submit"  />
+     </form>
+</body>
+</html>

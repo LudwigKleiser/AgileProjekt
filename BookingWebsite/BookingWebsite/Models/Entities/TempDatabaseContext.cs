@@ -78,13 +78,9 @@ namespace BookingWebsite.Models.Entities
             {
                 entity.Property(e => e.Customer_Id).HasColumnName("Customer_Id");
 
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                
 
-                entity.Property(e => e.Username)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.User)
