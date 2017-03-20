@@ -25,7 +25,9 @@ namespace BookingWebsite
             services.AddDbContext<IdentityDbContext>(o => o.UseSqlServer(connString));
             services.AddIdentity<IdentityUser, IdentityRole>().
             AddEntityFrameworkStores<IdentityDbContext>().
+            
             AddDefaultTokenProviders();
+            
             services.AddSession();
             services.AddMemoryCache();
             services.AddMvc();
@@ -44,7 +46,7 @@ namespace BookingWebsite
                 app.UseDeveloperExceptionPage();
                 app.UseIdentity();
                 app.UseMvcWithDefaultRoute();
-            
+                
 
        
         }

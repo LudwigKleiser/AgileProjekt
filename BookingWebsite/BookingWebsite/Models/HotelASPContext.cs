@@ -13,13 +13,17 @@ namespace BookingWebsite.Models.Entities
             : base(options)
         {
         }
-
+        public void AddCustomer()
+        {
+            string hello = "hello";
+        }
         //public void AddCustomer(CustomersCreateVM customer)
         //{
 
 
         //    //var customerToAdd = new Customer
         //    //{
+                    
         //    //    FirstName = customer.FirstName,
         //    //    Email = customer.Email,
         //    //    City = customer.City,

@@ -74,5 +74,7 @@ namespace BookingWebsite.Models.Entities
                 entity.Property(e => e.ZipCode).HasMaxLength(50);
             });
         }
+
+        
     }
 }

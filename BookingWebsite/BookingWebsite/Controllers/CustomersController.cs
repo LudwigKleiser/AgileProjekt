@@ -14,7 +14,7 @@ namespace BookingWebsite.Controllers
         HotelASPContext context;
         
 
-        public CustomersController(TempDatabaseContext context)
+        public CustomersController(HotelASPContext context)
         {
             this.context = context;
         }
@@ -44,34 +44,34 @@ namespace BookingWebsite.Controllers
         //    return RedirectToAction(nameof(CustomersController.CreateUser));
         //}
 
-        public IActionResult CreateUser()
-        {
-            var usr = new UserCreateVM
-            {
-                Password = Request.Cookies["Password"],
-                Email = Request.Cookies["Email"],
-                Username = Request.Cookies["Username"]
-            };
-            context.AddUser(usr);
-            return RedirectToAction(nameof(CustomersController.Index));
-        }
+        //public IActionResult CreateUser()
+        //{
+        //    var usr = new UserCreateVM
+        //    {
+        //        Password = Request.Cookies["Password"],
+        //        Email = Request.Cookies["Email"],
+        //        Username = Request.Cookies["Username"]
+        //    };
+        //    context.AddUser(usr);
+        //    return RedirectToAction(nameof(CustomersController.Index));
+        //}
 
-        public IActionResult ShowCustomer(int id)
-        {
-            var model = context.FindCustomerById(id);
-            return View(model);
-        }
+        //public IActionResult ShowCustomer(int id)
+        //{
+        //    var model = context.FindCustomerById(id);
+        //    return View(model);
+        //}
 
-        public IActionResult EditCustomer(int id)
-        {
-            var model = context.FindCustomerById(id);
-            return View(model);
-        }
-        [HttpPost]
-        public IActionResult EditCustomer(Customer customer)
-        {
-            context.EditCustomer(customer);
-            return RedirectToAction(nameof(CustomersController.Index));
-        }
+        //public IActionResult EditCustomer(int id)
+        //{
+        //    var model = context.FindCustomerById(id);
+        //    return View(model);
+        //}
+        //[HttpPost]
+        //public IActionResult EditCustomer(Customer customer)
+        //{
+        //    context.EditCustomer(customer);
+        //    return RedirectToAction(nameof(CustomersController.Index));
+        //}
     }
 }
