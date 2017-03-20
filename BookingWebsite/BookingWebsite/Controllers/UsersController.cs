@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using BookingWebsite.Models.Entities;
 using BookingWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookingWebsite.Controllers
 {
@@ -31,14 +32,24 @@ namespace BookingWebsite.Controllers
             this.roleManager = roleManager;
             this.context = context;
         }
+        [Authorize(Roles = "SuperAdmin")]
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
-            roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
-            roleManager.CreateAsync(new IdentityRole("Admin"));
-            roleManager.CreateAsync(new IdentityRole("Customer"));
-            
+            //await roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
+            //await roleManager.CreateAsync(new IdentityRole("Admin"));
+            //await roleManager.CreateAsync(new IdentityRole("Customer"));
+            var user = new IdentityUser("Superadmin");
+            var result = await userManager.CreateAsync(user, "Abc123!");
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(user, "SuperAdmin");
+            }
             
             return View();
         }
@@ -67,14 +78,14 @@ namespace BookingWebsite.Controllers
 
            else if (result.Succeeded)
             {
-                model.AspnetId = user.Id;
+                model.AspNetUserId = user.Id;
             }
-            ActionContext.adduder(model, )
+            
             await signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
             
 
             // 3. Redirect user
-            return RedirectToAction(nameof(CustomersController.EditCustomer));
+            return RedirectToAction(nameof(UsersController.Index));
         }
 
         

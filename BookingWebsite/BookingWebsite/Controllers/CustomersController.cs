@@ -11,25 +11,25 @@ namespace BookingWebsite.Controllers
     public class CustomersController : Controller
     {
 
-        HotelASPContext context;
+        //HotelASPContext context;
         
 
-        public CustomersController(HotelASPContext context)
-        {
-            this.context = context;
-        }
-        public IActionResult Index()
-        {
-           var models = context.GetCustomersForIndex();
-            return View(models);
-        }
+        //public CustomersController(HotelASPContext context)
+        //{
+        //    this.context = context;
+        //}
+        //public IActionResult Index()
+        //{
+        //   var models = context.GetCustomersForIndex();
+        //    return View(models);
+        //}
 
-        [HttpGet]
-        public IActionResult Create()
-        {
+        //[HttpGet]
+        //public IActionResult Create()
+        //{
             
-            return View();
-        }
+        //    return View();
+        //}
 
         //[HttpPost]
         //public IActionResult Create(CustomersCreateVM customer)
