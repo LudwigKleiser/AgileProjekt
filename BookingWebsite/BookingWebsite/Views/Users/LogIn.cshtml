@@ -1,0 +1,21 @@
+﻿@using BookingWebsite.Models
+@model UsersLogInVM
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+    </title>
+</head>
+<body>
+    <form asp-controller="users" asp-action="login">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+        <span style="color: red" asp-validation-for="Username"></span> <br />
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span style="color: red" asp-validation-for="Password"></span> <br />
+        <input type="submit" value="Log in" />
+        </form>
+</body>
+</html>

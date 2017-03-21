@@ -1,5 +1,5 @@
 ﻿@using BookingWebsite.Models
-@model UsersRegisterVM
+@model UsersEditVM
 @addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html>
@@ -7,13 +7,7 @@
     <title></title>
 </head>
 <body>
-    <form asp-controller="users" asp-action="register">
-        <label asp-for="Username"></label>
-        <input asp-for="Username" />
-        <span style="color: red" asp-validation-for="Username"></span> <br />
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span style="color: red" asp-validation-for="Password"></span> <br />
+    <form asp-controller="users" asp-action="edit">
         <label asp-for="FirstName"></label>
         <input asp-for="FirstName" />
         <span style="color: red" asp-validation-for="FirstName"></span> <br />
@@ -32,7 +26,7 @@
         <label asp-for="City"></label>
         <input asp-for="City" />
         <span style="color: red" asp-validation-for="City"></span> <br />
-        <input type="submit" value="Submit"  />
-     </form>
+        <input type="submit" value="Change" />
+        </form>
 </body>
 </html>

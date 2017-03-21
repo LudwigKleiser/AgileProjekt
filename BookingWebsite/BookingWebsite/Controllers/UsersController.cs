@@ -32,24 +32,25 @@ namespace BookingWebsite.Controllers
             this.roleManager = roleManager;
             this.context = context;
         }
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles ="Customer")]
         public IActionResult Index()
         {
-            return View();
+            var model = context.GetUsersForIndex();
+            return View(model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> Register()
+        public IActionResult Register()
         {
             //await roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
             //await roleManager.CreateAsync(new IdentityRole("Admin"));
             //await roleManager.CreateAsync(new IdentityRole("Customer"));
-            var user = new IdentityUser("Superadmin");
-            var result = await userManager.CreateAsync(user, "Abc123!");
-            if (result.Succeeded)
-            {
-                await userManager.AddToRoleAsync(user, "SuperAdmin");
-            }
+            //var user = new IdentityUser("Superadmin");
+            //var result = await userManager.CreateAsync(user, "Abc123!");
+            //if (result.Succeeded)
+            //{
+            //    await userManager.AddToRoleAsync(user, "SuperAdmin");
+            //}
             
             return View();
         }
@@ -60,10 +61,7 @@ namespace BookingWebsite.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            // Create the DB Schema
-           // await identityContext.Database.EnsureCreatedAsync();
-
-            // 1. Create user
+            
             var user = new IdentityUser(model.Username);
             
             var result = await userManager.CreateAsync(user, model.Password);
@@ -79,15 +77,70 @@ namespace BookingWebsite.Controllers
            else if (result.Succeeded)
             {
                 model.AspNetUserId = user.Id;
+                
+                await userManager.AddToRoleAsync(user, "Customer");
+           
             }
             
-            await signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
             
-
-            // 3. Redirect user
+            await signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
+            context.AddUser(model);
             return RedirectToAction(nameof(UsersController.Index));
+            
         }
+        [Authorize]
+        public IActionResult Details()
+        {
+            string userID = userManager.GetUserId(HttpContext.User);
+            var model = context.FindUserById(userID);
+            return View(model);
+               
+                
 
+        }
+        [Authorize]
+        public IActionResult Edit()
+        {
+            
+            return View();
+
+            
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult Edit(UsersEditVM model)
+        {
+            string userID = userManager.GetUserId(HttpContext.User);
+            context.FindUserForEditByID(userID, model);
+            return RedirectToAction(nameof(UsersController.Details));
+        }
+        [HttpGet]
+        public IActionResult LogIn()
+        {
+            return View();
+        }
         
+        [HttpPost]
+        public async Task<IActionResult> LogIn(UsersLogInVM model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+
+            var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
+            if(!result.Succeeded)
+            {
+
+                return View(model);
+            }
+
+            return RedirectToAction(nameof(UsersController.Details));
+
+        }
+        
+        public IActionResult LogOut()
+        {
+            signInManager.SignOutAsync();
+            return RedirectToAction(nameof(UsersController.LogIn));
+        }
     }
 }
