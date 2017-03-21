@@ -41,6 +41,7 @@ namespace BookingWebsite.Models.Entities
         {
             var user = User.Single(i => i.AspNetUserId == id);
             
+            
             var userForDetails = new UsersDetailsVM
             {
                 FirstName = user.FirstName,
