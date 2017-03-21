@@ -1,0 +1,26 @@
+﻿@model RoomsDetailsVM
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Details</title>
+</head>
+<body>
+    <h1>@Model.Name</h1>
+    <ul>
+        <li>
+            <p>Number: @Model.Number</p>
+        </li>
+        <li>
+            <p>Price: @Model.Price</p>
+        </li>
+        <li>
+            <p>Size: @Model.Size</p>
+        </li>
+    </ul>
+    @foreach(String url in Model.Images)
+    {
+        <img src="~/Images/Rooms/@Model.Id/@url" /><br />
+    }
+    <p>@Model.Description</p>
+</body>
+</html>

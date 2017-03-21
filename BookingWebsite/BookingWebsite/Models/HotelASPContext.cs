@@ -32,6 +32,16 @@ namespace BookingWebsite.Models.Entities
             SaveChanges();
         }
 
+        public Room[] GetRoomsForIndex()
+        {
+            return Room.ToArray();
+        }
+
+        public Room GetRoomForDetails(int id)
+        {
+            return Room.Single(r => r.Id == id);
+        }
+
         public User[] GetUsersForIndex()
         {
             return User.ToArray();
@@ -128,5 +138,7 @@ namespace BookingWebsite.Models.Entities
         //    customerToFind.Telephone = customer.Telephone;
         //    SaveChanges();
         //}
+
+
     }
 }

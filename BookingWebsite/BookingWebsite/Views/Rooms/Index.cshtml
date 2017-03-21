@@ -1,0 +1,23 @@
+﻿@using BookingWebsite.Models.Entities
+@model Room[]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rooms index</title>
+</head>
+<body>
+    @foreach (Room room in Model)
+    {
+        <h3><a asp-controller="Rooms" asp-action="Details" asp-route-id="@room.Id">@room.Name</a></h3>
+        <ul>
+            <li>
+            <p>Size: @room.Size</p>
+            </li>
+            <li>
+                <p>Price: @room.Price</p>
+            </li>
+        </ul>
+        <hr />
+    }
+</body>
+</html>
