@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\CSS\StyleSheet.css" />
     <Content Include="wwwroot\js\JavaScript.js" />
   </ItemGroup>
   <ItemGroup>
